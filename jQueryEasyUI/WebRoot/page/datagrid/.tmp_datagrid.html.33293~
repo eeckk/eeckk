@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+  <head>
+    <title>datagrid.html</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <!--JQuery的主件-->
+    <script type="text/jscript" src="../../js/jquery.min.js"></script>
+	<!--easyUI的主件-->
+    <script type="text/jscript" src="../../js/jquery.easyui.min.js"></script>
+	<!--easyUI的主样式文件-->
+    <link rel="stylesheet" type="text/css" href="../../js/themes/default/easyui.css">
+	<!--easyUI的主样式文件-->
+    <link rel="stylesheet" type="text/css" href="../../js/themes/icon.css">
+    <!--国际化-->
+	<script type="text/javascript" src="../../js/locale/easyui-lang-zh_CN.js"></script>
+  </head>
+  <script type="text/javascript">
+  	$(function(){
+		$("#table_id").datagrid({
+			url:"datagrid.json",
+			 columns:[[    
+		        {field:'code_number',title:'车次',width:100},    
+		        {field:'startstate',title:'出发地点<br>到达地点',width:100},    
+		        {field:'starttime',title:'出发时间<br>到达时间',width:100},    
+		        {field:'yz',title:'硬座',width:100},    
+		        {field:'wz',title:'无座',width:100},    
+		        {field:'bz',title:'备注',width:100}    
+		    ]],
+			fitColumns:true,
+			onLoadSuccess:function(){
+				$("a[id='btn_1']").linkbutton({    
+				    iconCls: 'icon-add'   
+				});  
+			},
+			pagination:true,
+		})
+	});
+	
+  </script>
+  <body>
+    <table id="table_id">
+    </table>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

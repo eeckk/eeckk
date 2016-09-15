@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+    <head>
+        <title>欢迎使用ckk平台</title>
+        <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+        <meta http-equiv="description" content="this is my page">
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <!--JQuery的主件-->
+        <script type="text/jscript" src="../../js/jquery.min.js">
+        </script>
+        <!--easyUI的主件-->
+        <script type="text/jscript" src="../../js/jquery.easyui.min.js">
+        </script>
+        <!--easyUI的主样式文件-->
+        <link rel="stylesheet" type="text/css" href="../../js/themes/default/easyui.css">
+        <!--easyUI的主样式文件-->
+        <link rel="stylesheet" type="text/css" href="../../js/themes/icon.css">
+        <!--国际化-->
+        <script type="text/javascript" src="../../js/locale/easyui-lang-zh_CN.js">
+        </script>
+        <script type="text/javascript">
+            $(function(){
+                mainlayout.init();
+            });
+            var mainlayout = {
+                init: function(){
+                    $("#jtree").tree({
+                        url: "tree_data1.json",
+                        animate: true,
+                        lines: true,
+                        onClick: function(node){
+                            var flag = $('#center_tabs').tabs('getTab', node.text);
+                            if (flag == null) {
+                                $('#center_tabs').tabs('add', {
+                                    title: node.text,
+                                    href: "../../page/href/grid.html",
+                                    closable: true,
+                                    onLoad: function(){
+                                        //__________________________________________________
+                                        $("#grid_table").datagrid({
+                                            url: "datagrid.json",
+											fit:true,
+                                            columns: [[{
+                                                field: 'code_number',
+                                                title: '车次',
+                                                width: 100
+                                            }, {
+                                                field: 'startstate',
+                                                title: '出发地点<br>到达地点',
+                                                width: 100
+                                            }, {
+                                                field: 'starttime',
+                                                title: '出发时间<br>到达时间',
+                                                width: 100
+                                            }, {
+                                                field: 'yz',
+                                                title: '硬座',
+                                                width: 100
+                                            }, {
+                                                field: 'wz',
+                                                title: '无座',
+                                                width: 100
+                                            }, {
+                                                field: 'bz',
+                                                title: '备注',
+                                                width: 100
+                                            }]],
+                                            fitColumns: true,
+                                            onLoadSuccess: function(){
+                                                $("a[id='btn_1']").linkbutton({
+                                                    iconCls: 'icon-add'
+                                                });
+                                            },
+                                            pagination: true,
+                                        })
+                                        
+                                        
+                                        //__________________________________________________
+                                    }
+                                });
+                            }
+                            else {
+                                $('#center_tabs').tabs('select', node.text);
+                            }
+                        }
+                    })
+                    
+                    
+                }
+            }
+        </script>
+    </head>
+    <body class="easyui-layout">
+        <div data-options="region:'north',title:'欢迎使用ckk平台',split:true" style="height:80px;">
+        </div>
+        <div data-options="region:'south',title:'2016 ckk 使用前必读 <a>意见反馈</a> 京ICP证030173号&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp京公网安备11000002000001号',split:true" style="height:50px;">
+        </div>
+        <div data-options="region:'east',iconCls:'icon-reload',title:'East',split:true" style="width:100px;">
+        </div>
+        <div data-options="region:'west',title:'ckk办公平台',split:true" style="width:230px;">
+            <div id="left_acc" class="easyui-accordion" fit=true style="width:300px;height:200px;">
+                <div title="协同办公平台" data-options="iconCls:'icon-save',selected:true" style="overflow:auto;padding:10px;">
+                    <ul id="jtree">
+                    </ul>
+                </div>
+                <div title="人员管理平台" data-options="iconCls:'icon-reload'" style="padding:10px;">
+                    content2 
+                </div>
+                <div title="采购平台">
+                    content3 
+                </div>
+                <div title="物流管理平台">
+                    content4 
+                </div>
+            </div>
+        </div>
+        <div data-options="region:'center',title:'center title'" style="padding:5px;background:#eee;">
+            <div id="center_tabs" class="easyui-tabs" style="width:500px;height:250px;" data-options="fit:true">
+                <div title="首页" style="padding:20px;">
+                    <img src="../../image/0.jpg"/>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+  <head>
+    <title>base_1.html</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<!--JQuery的主件-->
+    <script type="text/jscript" src="../../js/jquery.min.js"></script>
+	<!--easyUI的主件-->
+    <script type="text/jscript" src="../../js/jquery.easyui.min.js"></script>
+	<!--easyUI的主样式文件-->
+    <link rel="stylesheet" type="text/css" href="../../js/themes/default/easyui.css">
+	<!--easyUI的主样式文件-->
+    <link rel="stylesheet" type="text/css" href="../../js/themes/icon.css">
+	<script type="text/javascript">
+		$().ready(function(){
+			$("#emenu").menu('show',{
+				left:300,
+				top :200
+			});
+		})
+	
+	</script>
+
+  </head>
+	
+  <body>            
+  	<div id="emenu" class="easyui-menu" style="width:200px">
+  	<div data-options="iconCls:'icon-save'">新建文件夹</div>
+	<div class="menu-sep"></div> 
+  	<div>删除</div>
+	<div class="menu-sep"></div> 
+  	<div>复制</div>
+	<div class="menu-sep"></div> 
+  	<div>粘贴</div>
+	<div class="menu-sep"></div> 
+  	<div>个性化</div>
+	<div class="menu-sep"></div> 
+  	<div>查看
+	   <div style="width:200px">
+	   	<div>用记事本打开</div>
+	   	<div>用迅雷打开</div>
+	   	<div>用edit打开</div>
+	   	<div>用其他方式打开</div>
+	   </div>
+	</div>
+	</div>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+  <head>
+    <title>tree.html</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+<!--JQuery的主件-->
+    <script type="text/jscript" src="../../js/jquery.min.js"></script>
+	<!--easyUI的主件-->
+    <script type="text/jscript" src="../../js/jquery.easyui.min.js"></script>
+	<!--easyUI的主样式文件-->
+    <link rel="stylesheet" type="text/css" href="../../js/themes/default/easyui.css">
+	<!--easyUI的主样式文件-->
+    <link rel="stylesheet" type="text/css" href="../../js/themes/icon.css">
+	<script type="text/javascript">
+		$(function(){
+			$("#jtree").tree({
+				url:"tree_data1.json",
+				animate:true,
+				lines:true,
+				dnd:true,
+			})
+		})
+		
+	</script>
+  </head>
+  <body>
+    <ul id="jtree"></ul>
+  </body>
+</html>
